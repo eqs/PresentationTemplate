@@ -1,0 +1,37 @@
+
+% 2015/09/13
+% author:eqs
+
+\usepackage{graphicx,xcolor}
+\usepackage{fancyhdr}
+\usepackage{tikz}
+\usepackage{bm}
+\usepackage{amsmath,amssymb,amsfonts}
+
+\newcommand{\source}[1]{(出典:#1)}
+
+\def\chikuw@{1}
+
+\newcommand{\blank}[1]{\textcolor{red}{\kern4mm\ifnum1=\chikuw@\relax{#1}\else\phantom{#1}\fi\kern4mm}}
+\newcommand{\ublank}[1]{\underline{\blank{#1}}}
+
+\newcommand{\diff}[3][1]{%
+\frac{\mathrm d\ifnum#1=1\relax\else^#1\fi#2}{\mathrm d#3\ifnum#1=1\relax\else^#1\fi}}
+
+\newcommand{\pdiff}[3][1]{%
+\frac{\partial\ifnum#1=1\relax\else^#1\fi#2}{\partial#3\ifnum#1=1\relax\else^#1\fi}}
+
+\newcommand{\subs}[6]{%
+\begin{tabular}{c|ccc} $#1$&$#2$&$\to$&$#3$ \\ \hline $#4$&$#5$&$\to$&$#6$\\ \end{tabular}}
+
+\newcommand{\kakko}[1]{\left(#1\right)}
+\newcommand{\namikakko}[1]{\left\{#1\right\}}
+\newcommand{\kakukakko}[1]{\left\big[#1\right\big]}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\teint}[3]{\left[\kern.125em#1\vphantom{\sqrt{t}}\kern.125em\right]_{#2}^{#3}}
+
+% 実部と虚部を表す記号を再定義
+\let\Re\rerax%
+\DeclareMathOperator{\Re}{Re}
+\let\Im\rerax%
+\DeclareMathOperator{\Im}{Im}

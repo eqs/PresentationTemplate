@@ -1,0 +1,73 @@
+%%%%%%%%%%%%%%%%%
+% chikuwabeam.sty : my beamer theme
+% 2015/09/13 author: eqs
+%%%%%%%%%%%%%%%%%
+
+% パッケージの読み込み
+\usepackage{kmath}
+
+%% 色定義
+\definecolor{back}{rgb}{0.975,0.975,0.975}
+\definecolor{base}{rgb}{0.3,0.3,0.3}
+\definecolor{main}{rgb}{0,0.517,0.705}
+\definecolor{bulletcolor}{rgb}{0,0.387,0.528}
+\definecolor{accent}{rgb}{0.75,0.564,0}
+
+%% beamerのテーマ設定
+\usetheme{copenhagen}
+\usecolortheme{default}
+\usefonttheme{default}
+\useinnertheme{default}
+\useoutertheme{default}
+
+%% beamerのその他色々設定
+\setbeamertemplate{footline}{\hfill\raisebox{2mm}{\texttt{\insertframenumber \ / \inserttotalframenumber}}\quad\quad}
+\setbeamerfont{footline}{size=\normalsize,series=\bfseries}
+\setbeamertemplate{items}{\textcolor{bulletcolor}{\textbullet}}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{headline}{}
+\setbeamertemplate{section in toc}[default]
+\usefonttheme{professionalfonts}
+
+\setbeamertemplate{blocks}[default]
+\setbeamercolor{block title}{bg=main!50!back}
+\setbeamercolor{block body}{bg=main!5!back}
+
+%% beamerの色設定
+\setbeamercolor{title}{fg=main,bg=back}
+\setbeamercolor{frametitle}{fg=main,bg=back}
+\setbeamercolor{footline}{fg=main,bg=main}
+\setbeamercolor{normal text}{fg=base,bg=back}
+
+%% 強調コマンド
+\newcommand{\Base}[1]{\textbf{\textcolor{base}{#1}}}
+\newcommand{\Main}[1]{\textbf{\textcolor{main}{#1}}}
+\newcommand{\Accent}[1]{\textbf{\textcolor{accent}{#1}}}
+
+\tikzstyle{every picture}+=[remember picture]
+
+%% フォント設定
+%\renewcommand{\kanjifamilydefault}{\gtdefault}
+\renewcommand{\familydefault}{\sfdefault}
+\AtBeginDvi{\special{pdf:mapfile font.map}}
+
+\newcommand{\TikZ}{Ti\textit{k}Z\xspace}
+\newcommand{\bgs}{\symbol{92}}
+%\newcommand{\blackframe}[1]{%
+%\setbeamercolor{normal text}{bg=black}#1\setbeamercolor{normal text}{bg=white}}
+
+\newcommand{\bigarrow}[1]{%
+\begin{tikzpicture}
+	\draw[back,fill=#1,line width=1.5pt]
+		(0:0)--++(0:1)--++(90:0.5)--++(-45:1.41)--++(-135:1.41)
+		--++(90:0.5)--++(-180:1)--++(90:1);
+\end{tikzpicture}%
+}
+
+\newcommand{\pf}[2]{%
+\plainframe{\begin{center}~\par~\par~\par\scalebox{#1}{\textbf{#2}}\end{center}}}
+
+\renewcommand{\baselinestretch}{1.25}
+
+% 文字列の背景に色をつけるコマンド
+\newcommand{\setbg}[2][main!20]{\tikz[baseline=(X.base)]\node[fill=#1](X){#2};}
